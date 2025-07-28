@@ -15,7 +15,7 @@ class SlideOnboarding extends StatefulWidget {
   final EdgeInsetsGeometry padding;
 
   const SlideOnboarding({
-    Key? key,
+    super.key,
     required this.steps,
     required this.controller,
     this.onComplete,
@@ -25,7 +25,7 @@ class SlideOnboarding extends StatefulWidget {
     this.animationDuration = const Duration(milliseconds: 300),
     this.animationCurve = Curves.easeInOut,
     this.padding = const EdgeInsets.all(24.0),
-  }) : super(key: key);
+  });
 
   @override
   State<SlideOnboarding> createState() => _SlideOnboardingState();

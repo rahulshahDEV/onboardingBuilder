@@ -17,7 +17,7 @@ class VerticalOnboarding extends StatefulWidget {
   final ScrollPhysics? scrollPhysics;
 
   const VerticalOnboarding({
-    Key? key,
+    super.key,
     required this.steps,
     required this.controller,
     this.onComplete,
@@ -29,7 +29,7 @@ class VerticalOnboarding extends StatefulWidget {
     this.padding = const EdgeInsets.symmetric(horizontal: 24.0, vertical: 40.0),
     this.enableSnapScrolling = true,
     this.scrollPhysics,
-  }) : super(key: key);
+  });
 
   @override
   State<VerticalOnboarding> createState() => _VerticalOnboardingState();

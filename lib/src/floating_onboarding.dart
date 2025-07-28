@@ -46,7 +46,6 @@ class _FloatingOnboardingState extends State<FloatingOnboarding>
   late Animation<Offset> _slideAnimation;
   late Animation<double> _scaleAnimation;
   late Animation<double> _rotateAnimation;
-  late Animation<double> _parallaxAnimation;
 
   List<ParticleData> _particles = [];
 
@@ -99,9 +98,6 @@ class _FloatingOnboardingState extends State<FloatingOnboarding>
       CurvedAnimation(parent: _floatController, curve: Curves.easeInOut),
     );
 
-    _parallaxAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _floatController, curve: Curves.easeInOut),
-    );
 
     _initializeParticles();
     _transitionController.forward();

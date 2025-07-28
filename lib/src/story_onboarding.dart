@@ -17,7 +17,7 @@ class StoryOnboarding extends StatefulWidget {
   final Duration autoAdvanceDuration;
 
   const StoryOnboarding({
-    Key? key,
+    super.key,
     required this.steps,
     required this.controller,
     this.onComplete,
@@ -29,7 +29,7 @@ class StoryOnboarding extends StatefulWidget {
     this.padding = const EdgeInsets.all(20.0),
     this.autoAdvance = false,
     this.autoAdvanceDuration = const Duration(seconds: 3),
-  }) : super(key: key);
+  });
 
   @override
   State<StoryOnboarding> createState() => _StoryOnboardingState();
@@ -41,9 +41,7 @@ class _StoryOnboardingState extends State<StoryOnboarding>
   late AnimationController _fadeController;
   late AnimationController _progressController;
   late Animation<Offset> _slideInAnimation;
-  late Animation<Offset> _slideOutAnimation;
   late Animation<double> _fadeInAnimation;
-  late Animation<double> _fadeOutAnimation;
   late Animation<double> _scaleAnimation;
   late Animation<double> _progressAnimation;
 
@@ -74,20 +72,8 @@ class _StoryOnboardingState extends State<StoryOnboarding>
       curve: Interval(0.0, 0.6, curve: widget.animationCurve),
     ));
 
-    _slideOutAnimation = Tween<Offset>(
-      begin: Offset.zero,
-      end: const Offset(-1.0, 0.0),
-    ).animate(CurvedAnimation(
-      parent: _slideController,
-      curve: Interval(0.4, 1.0, curve: widget.animationCurve),
-    ));
-
     _fadeInAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _fadeController, curve: Curves.easeIn),
-    );
-
-    _fadeOutAnimation = Tween<double>(begin: 1.0, end: 0.0).animate(
-      CurvedAnimation(parent: _fadeController, curve: Curves.easeOut),
     );
 
     _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
