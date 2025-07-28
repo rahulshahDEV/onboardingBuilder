@@ -44,7 +44,6 @@ class _VerticalOnboardingState extends State<VerticalOnboarding>
   late Animation<Offset> _slideAnimation;
   late Animation<double> _scaleAnimation;
   
-  double _currentScrollOffset = 0.0;
   int _visibleStepIndex = 0;
 
   @override
@@ -97,9 +96,6 @@ class _VerticalOnboardingState extends State<VerticalOnboarding>
       widget.controller.goToStep(currentIndex);
     }
     
-    setState(() {
-      _currentScrollOffset = _scrollController.offset;
-    });
   }
 
   void _onControllerChanged() {
