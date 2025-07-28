@@ -17,6 +17,23 @@ A highly customizable Flutter package for building beautiful onboarding flows wi
 - **Custom Builders**: Override any component with custom widgets
 - **Material Design 3**: Full compatibility with Material 3
 
+## DEMO
+
+## Screenshots
+
+<div style="display: flex; overflow-x: auto; gap: 10px; height: 200px;">
+  <img src="https://i.imgur.com/aIZ2wVU.jpg" height="200">
+  <img src="https://i.imgur.com/OwOVdOH.jpg" height="200">
+  <img src="https://i.imgur.com/k8MlawL.jpg" height="200">
+  <img src="https://i.imgur.com/1hiay6B.jpg" height="200">
+  <img src="https://i.imgur.com/peDX7qF.jpg" height="200">
+  <img src="https://i.imgur.com/rbL5qvT.jpg" height="200">
+</div>
+
+
+
+
+
 ## Installation
 
 Add this to your package's `pubspec.yaml` file:
