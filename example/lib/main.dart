@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Onboarding Builder Example',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.red,
         useMaterial3: true,
       ),
       home: const OnboardingTypeSelector(),
@@ -291,12 +291,13 @@ class OnboardingExample extends StatelessWidget {
             icon: const Icon(Icons.check_circle, size: 80, color: Colors.white),
           ),
         ];
-        
+
       case OnboardingType.story:
         return [
           OnboardingStep(
             title: 'Story Mode',
-            description: 'Experience onboarding like Instagram stories with auto-advance and tap navigation.',
+            description:
+                'Experience onboarding like Instagram stories with auto-advance and tap navigation.',
             backgroundGradient: LinearGradient(
               colors: [Colors.pink.shade600, Colors.purple.shade600],
               begin: Alignment.topLeft,
@@ -306,7 +307,8 @@ class OnboardingExample extends StatelessWidget {
           ),
           OnboardingStep(
             title: 'Auto Progress',
-            description: 'Watch the progress bar fill automatically or tap to advance manually.',
+            description:
+                'Watch the progress bar fill automatically or tap to advance manually.',
             backgroundGradient: LinearGradient(
               colors: [Colors.orange.shade500, Colors.red.shade500],
               begin: Alignment.topCenter,
@@ -316,7 +318,8 @@ class OnboardingExample extends StatelessWidget {
           ),
           OnboardingStep(
             title: 'Interactive Experience',
-            description: 'Tap anywhere to skip ahead or use the navigation buttons for full control.',
+            description:
+                'Tap anywhere to skip ahead or use the navigation buttons for full control.',
             backgroundGradient: LinearGradient(
               colors: [Colors.indigo.shade500, Colors.blue.shade500],
               begin: Alignment.topRight,
@@ -325,31 +328,35 @@ class OnboardingExample extends StatelessWidget {
             icon: const Icon(Icons.touch_app, size: 80, color: Colors.white),
           ),
         ];
-        
+
       case OnboardingType.liquid:
         return [
           const OnboardingStep(
             title: 'Liquid Waves',
-            description: 'Beautiful animated liquid waves create a mesmerizing background effect.',
+            description:
+                'Beautiful animated liquid waves create a mesmerizing background effect.',
             icon: Icon(Icons.waves, size: 80, color: Colors.white),
           ),
           const OnboardingStep(
             title: 'Dynamic Colors',
-            description: 'Wave colors blend and shift creating a dynamic, ever-changing atmosphere.',
+            description:
+                'Wave colors blend and shift creating a dynamic, ever-changing atmosphere.',
             icon: Icon(Icons.color_lens, size: 80, color: Colors.white),
           ),
           const OnboardingStep(
             title: 'Smooth Flow',
-            description: 'Experience the smooth, organic flow of liquid animations throughout your journey.',
+            description:
+                'Experience the smooth, organic flow of liquid animations throughout your journey.',
             icon: Icon(Icons.water_drop, size: 80, color: Colors.white),
           ),
         ];
-        
+
       case OnboardingType.vertical:
         return [
           OnboardingStep(
             title: 'Scroll Vertically',
-            description: 'Navigate through onboarding steps with natural vertical scrolling motion.',
+            description:
+                'Navigate through onboarding steps with natural vertical scrolling motion.',
             backgroundGradient: LinearGradient(
               colors: [Colors.green.shade400, Colors.teal.shade400],
               begin: Alignment.topLeft,
@@ -359,7 +366,8 @@ class OnboardingExample extends StatelessWidget {
           ),
           OnboardingStep(
             title: 'Side Progress',
-            description: 'Track your progress with the elegant side progress indicator.',
+            description:
+                'Track your progress with the elegant side progress indicator.',
             backgroundGradient: LinearGradient(
               colors: [Colors.blue.shade500, Colors.indigo.shade500],
               begin: Alignment.topCenter,
@@ -369,7 +377,8 @@ class OnboardingExample extends StatelessWidget {
           ),
           OnboardingStep(
             title: 'Smooth Transitions',
-            description: 'Enjoy buttery smooth transitions with snap-to-page scrolling physics.',
+            description:
+                'Enjoy buttery smooth transitions with snap-to-page scrolling physics.',
             backgroundGradient: LinearGradient(
               colors: [Colors.purple.shade500, Colors.pink.shade500],
               begin: Alignment.topRight,
@@ -378,12 +387,13 @@ class OnboardingExample extends StatelessWidget {
             icon: const Icon(Icons.animation, size: 80, color: Colors.white),
           ),
         ];
-        
+
       case OnboardingType.floating:
         return [
           OnboardingStep(
             title: 'Floating Magic',
-            description: 'Elements float and dance with enchanting particle effects in the background.',
+            description:
+                'Elements float and dance with enchanting particle effects in the background.',
             backgroundGradient: LinearGradient(
               colors: [Colors.deepPurple.shade600, Colors.indigo.shade600],
               begin: Alignment.topLeft,
@@ -393,7 +403,8 @@ class OnboardingExample extends StatelessWidget {
           ),
           OnboardingStep(
             title: 'Parallax Effects',
-            description: 'Experience depth with beautiful parallax scrolling and floating animations.',
+            description:
+                'Experience depth with beautiful parallax scrolling and floating animations.',
             backgroundGradient: LinearGradient(
               colors: [Colors.teal.shade500, Colors.cyan.shade500],
               begin: Alignment.topCenter,
@@ -403,13 +414,15 @@ class OnboardingExample extends StatelessWidget {
           ),
           OnboardingStep(
             title: 'Immersive Design',
-            description: 'Get lost in the immersive design with floating cards and animated particles.',
+            description:
+                'Get lost in the immersive design with floating cards and animated particles.',
             backgroundGradient: LinearGradient(
               colors: [Colors.pink.shade500, Colors.purple.shade500],
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
             ),
-            icon: const Icon(Icons.auto_fix_high, size: 80, color: Colors.white),
+            icon:
+                const Icon(Icons.auto_fix_high, size: 80, color: Colors.white),
           ),
         ];
     }
@@ -451,7 +464,7 @@ class OnboardingExample extends StatelessWidget {
             color: Colors.white,
           ),
         );
-        
+
       case OnboardingType.story:
         return const OnboardingTheme(
           primaryColor: Colors.white,
@@ -469,7 +482,7 @@ class OnboardingExample extends StatelessWidget {
             color: Colors.white,
           ),
         );
-        
+
       case OnboardingType.liquid:
         return const OnboardingTheme(
           primaryColor: Colors.cyan,
@@ -487,7 +500,7 @@ class OnboardingExample extends StatelessWidget {
             color: Colors.white,
           ),
         );
-        
+
       case OnboardingType.vertical:
         return const OnboardingTheme(
           primaryColor: Colors.green,
@@ -497,7 +510,7 @@ class OnboardingExample extends StatelessWidget {
           progressIndicatorColor: Colors.green,
           borderRadius: 12,
         );
-        
+
       case OnboardingType.floating:
         return const OnboardingTheme(
           primaryColor: Colors.deepPurple,

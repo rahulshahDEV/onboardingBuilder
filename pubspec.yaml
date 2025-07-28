@@ -1,6 +1,6 @@
 name: onboarding_builder
 description: A highly customizable Flutter package for building beautiful onboarding flows with 7 unique styles including slide, card, full-screen, story, liquid wave, vertical scrolling, and floating elements.
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/rahulshahDEV/onboardingBuilder
 repository: https://github.com/rahulshahDEV/onboardingBuilder
 issue_tracker: https://github.com/rahulshahDEV/onboardingBuilder/issues

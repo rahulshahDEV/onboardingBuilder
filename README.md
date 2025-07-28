@@ -4,14 +4,16 @@ A highly customizable Flutter package for building beautiful onboarding flows wi
 
 ## Features
 
-- **3 Built-in Onboarding Types**: Slide, Card, and Full-Screen styles
+- **7 Built-in Onboarding Types**: Slide, Card, Full-Screen, Story, Liquid Wave, Vertical Scrolling, and Floating Elements styles  
 - **Extensive Customization**: Colors, gradients, images, fonts, and more
 - **Rich Animation Support**: Smooth transitions with customizable curves and durations
-- **Gesture Support**: Swipe navigation (full-screen type)
+- **Advanced Effects**: Liquid wave animations, floating particles, parallax effects, and story-style progressions
+- **Gesture Support**: Swipe navigation, vertical scrolling, and tap interactions
 - **Image Support**: Asset images, network images, and custom image providers
 - **Theme System**: Comprehensive theming with OnboardingTheme
-- **Progress Indicators**: Dots, bars, and custom progress displays
+- **Progress Indicators**: Dots, bars, side progress, floating progress, and custom displays
 - **Skip Functionality**: Optional skip button with customization
+- **Auto-advance**: Automatic progression for story-style onboarding
 - **Custom Builders**: Override any component with custom widgets
 - **Material Design 3**: Full compatibility with Material 3
 
@@ -40,6 +42,18 @@ Elegant card-based layout with beautiful animations and modern design.
 
 ### 3. Full-Screen Onboarding
 Immersive full-screen experience with gradient backgrounds and swipe gestures.
+
+### 4. Story Onboarding
+Instagram-style story onboarding with progress bars, auto-advance, and tap-to-continue functionality.
+
+### 5. Liquid Wave Onboarding
+Dynamic liquid wave animations with fluid transitions and mesmerizing visual effects.
+
+### 6. Vertical Scrolling Onboarding
+Vertical scroll-based onboarding with snap scrolling, side progress indicators, and smooth animations.
+
+### 7. Floating Elements Onboarding
+Floating UI elements with parallax effects, particle backgrounds, and 3D-like animations.
 
 ## Usage
 
@@ -130,6 +144,125 @@ OnboardingBuilder(
     descriptionStyle: TextStyle(fontSize: 18, color: Colors.white),
   ),
   enableSwipeGesture: true,
+  onComplete: () => Navigator.pushReplacement(/* your route */),
+)
+```
+
+### Story Onboarding Example
+
+```dart
+OnboardingBuilder(
+  type: OnboardingType.story,
+  steps: [
+    OnboardingStep(
+      title: 'Welcome to Stories',
+      description: 'Experience Instagram-style onboarding with auto-advance.',
+      backgroundGradient: LinearGradient(
+        colors: [Colors.purple.shade400, Colors.pink.shade400],
+      ),
+      icon: Icon(Icons.auto_stories, size: 80, color: Colors.white),
+    ),
+    OnboardingStep(
+      title: 'Tap to Continue',
+      description: 'Tap anywhere to move to the next step.',
+      backgroundGradient: LinearGradient(
+        colors: [Colors.blue.shade400, Colors.cyan.shade400],
+      ),
+      icon: Icon(Icons.touch_app, size: 80, color: Colors.white),
+    ),
+    // ... more steps
+  ],
+  autoAdvance: true, // Enable auto-advance
+  autoAdvanceDuration: Duration(seconds: 3),
+  onComplete: () => Navigator.pushReplacement(/* your route */),
+)
+```
+
+### Liquid Wave Onboarding Example
+
+```dart
+OnboardingBuilder(
+  type: OnboardingType.liquid,
+  steps: [
+    OnboardingStep(
+      title: 'Liquid Animations',
+      description: 'Beautiful wave animations with fluid transitions.',
+      backgroundGradient: LinearGradient(
+        colors: [Colors.teal.shade300, Colors.blue.shade400],
+      ),
+      icon: Icon(Icons.waves, size: 80, color: Colors.white),
+    ),
+    OnboardingStep(
+      title: 'Smooth Flow',
+      description: 'Experience mesmerizing liquid wave effects.',
+      backgroundGradient: LinearGradient(
+        colors: [Colors.indigo.shade400, Colors.purple.shade400],
+      ),
+      icon: Icon(Icons.water_drop, size: 80, color: Colors.white),
+    ),
+    // ... more steps
+  ],
+  waveColors: [Colors.blue.shade200, Colors.purple.shade200],
+  animationDuration: Duration(milliseconds: 1000),
+  onComplete: () => Navigator.pushReplacement(/* your route */),
+)
+```
+
+### Vertical Scrolling Onboarding Example
+
+```dart
+OnboardingBuilder(
+  type: OnboardingType.vertical,
+  steps: [
+    OnboardingStep(
+      title: 'Scroll Vertically',
+      description: 'Scroll through steps with smooth snap animations.',
+      backgroundColor: Colors.lightBlue.shade50,
+      icon: Icon(Icons.swipe_vertical, size: 80, color: Colors.blue),
+    ),
+    OnboardingStep(
+      title: 'Side Progress',
+      description: 'Track your progress with the side indicator.',
+      backgroundColor: Colors.green.shade50,
+      icon: Icon(Icons.timeline, size: 80, color: Colors.green),
+    ),
+    // ... more steps
+  ],
+  showSideProgress: true,
+  enableSnapScrolling: true,
+  animationDuration: Duration(milliseconds: 500),
+  onComplete: () => Navigator.pushReplacement(/* your route */),
+)
+```
+
+### Floating Elements Onboarding Example
+
+```dart
+OnboardingBuilder(
+  type: OnboardingType.floating,
+  steps: [
+    OnboardingStep(
+      title: 'Floating Magic',
+      description: 'Elements that float with stunning parallax effects.',
+      backgroundGradient: LinearGradient(
+        colors: [Colors.deepPurple.shade400, Colors.pink.shade300],
+      ),
+      icon: Icon(Icons.bubble_chart, size: 80, color: Colors.white),
+    ),
+    OnboardingStep(
+      title: 'Particle Effects',
+      description: 'Beautiful particle backgrounds add depth.',
+      backgroundGradient: LinearGradient(
+        colors: [Colors.orange.shade400, Colors.red.shade400],
+      ),
+      icon: Icon(Icons.auto_fix_high, size: 80, color: Colors.white),
+    ),
+    // ... more steps
+  ],
+  enableParallaxEffect: true,
+  showParticleBackground: true,
+  showFloatingProgress: true,
+  animationDuration: Duration(milliseconds: 1200),
   onComplete: () => Navigator.pushReplacement(/* your route */),
 )
 ```
@@ -277,7 +410,7 @@ The main widget for creating onboarding flows.
 #### Properties
 
 - `steps` (required): List of `OnboardingStep` objects
-- `type`: Onboarding type (`OnboardingType.slide`, `card`, or `fullScreen`)
+- `type`: Onboarding type (`OnboardingType.slide`, `card`, `fullScreen`, `story`, `liquid`, `vertical`, or `floating`)
 - `theme`: Global theme configuration (`OnboardingTheme`)
 - `controller`: Optional `OnboardingController` for custom control
 - `onComplete`: Callback when onboarding is completed
@@ -286,12 +419,37 @@ The main widget for creating onboarding flows.
 - `padding`: Padding around the content (default: `EdgeInsets.all(24.0)`)
 - `showProgressIndicator`: Whether to show progress indicator (default: `true`)
 - `showSkipButton`: Whether to show skip button (default: `true`)
-- `animationDuration`: Duration for animations (default: `300ms`)
-- `animationCurve`: Animation curve (default: `Curves.easeInOut`)
-- `cardElevation`: Card elevation for card type (default: `8.0`)
-- `cardBorderRadius`: Card border radius for card type (default: `16.0`)
-- `enableSwipeGesture`: Enable swipe navigation for full-screen type (default: `true`)
-- `backgroundWidget`: Custom background widget for full-screen type
+- `animationDuration`: Duration for animations (default: varies by type)
+- `animationCurve`: Animation curve (default: varies by type)
+
+#### Type-Specific Properties
+
+**Card Type:**
+- `cardElevation`: Card elevation (default: `8.0`)
+- `cardBorderRadius`: Card border radius (default: `16.0`)
+
+**Full-Screen Type:**
+- `enableSwipeGesture`: Enable swipe navigation (default: `true`)
+- `backgroundWidget`: Custom background widget
+
+**Story Type:**
+- `showProgressBar`: Show story progress bars (default: `true`)
+- `autoAdvance`: Enable auto-advance (default: `false`)
+- `autoAdvanceDuration`: Duration for auto-advance (default: `3s`)
+
+**Liquid Type:**
+- `waveColors`: Custom colors for wave animations
+- `animationDuration`: Wave animation duration (default: `1000ms`)
+
+**Vertical Type:**
+- `showSideProgress`: Show side progress indicator (default: `true`)
+- `enableSnapScrolling`: Enable snap scrolling (default: `true`)
+- `scrollPhysics`: Custom scroll physics
+
+**Floating Type:**
+- `showFloatingProgress`: Show floating progress indicator (default: `true`)
+- `enableParallaxEffect`: Enable parallax effects (default: `true`)
+- `showParticleBackground`: Show particle background (default: `true`)
 
 ### OnboardingStep
 
@@ -358,8 +516,12 @@ Controller for managing onboarding state.
 Enum defining the onboarding UI style.
 
 - `OnboardingType.slide`: Classic slide onboarding with dots
-- `OnboardingType.card`: Card-based onboarding with animations
+- `OnboardingType.card`: Card-based onboarding with animations  
 - `OnboardingType.fullScreen`: Full-screen immersive onboarding
+- `OnboardingType.story`: Instagram-style story onboarding with progress bars
+- `OnboardingType.liquid`: Liquid wave animations with fluid transitions
+- `OnboardingType.vertical`: Vertical scrolling with snap animations
+- `OnboardingType.floating`: Floating elements with parallax and particle effects
 
 ## Example
 
